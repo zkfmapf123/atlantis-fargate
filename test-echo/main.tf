@@ -3,3 +3,7 @@ resource "null_resource" "echo" {
     echo = "hello atlantis"
   }
 }
+
+output v {
+    value = null_resource.echo
+}

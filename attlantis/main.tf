@@ -12,7 +12,8 @@ module "atlantis" {
       },
       {
         name  = "ATLANTIS_REPO_ALLOWLIST"
-        value = "github.com/zkfmapf123/atlantis-fargate/*"
+        value = "github.com/zkfmapf123/*"
+        ## github.com/zkfmapf123/repo1, github.com/zkfmapf123/repo2
       },
     ]
     secrets = [
