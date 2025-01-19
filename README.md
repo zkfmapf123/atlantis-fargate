@@ -1,12 +1,20 @@
 # Atalntis
 
-## install
+## install use ECS Fargate
 
-- ECS Fargate
+[ecs code](./attlantis/main.tf)
 
-## use terraform + github
+## webhook url
 
-## use terragrunt + github
+![1](./public/1.png)
+![2](./public/2.png)
+![3](./public/3.png)
+![4](./public/4.png)
+
+## Best Practice
+
+- AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY를 환경변수에 넣고 활용...
+- 깃 레포에 특정 폴더 하위만 진행하기
 
 ## Reference
 

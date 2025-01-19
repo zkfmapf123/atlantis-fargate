@@ -12,7 +12,9 @@ module "atlantis" {
       },
       {
         name  = "ATLANTIS_REPO_ALLOWLIST"
-        value = "github.com/zkfmapf123/atlantis-fargate/*"
+        value = "github.com/zkfmapf123/*"
+        ## github.com/zkfmapf123/repo1, github.com/zkfmapf123/repo2
+        ## atlantis_repo_allowlist = ["github.com/leedonggyu/your-repo-name/vpc/*", "github.com/leedonggyu/your-repo-name/test-echo/*"]
       },
     ]
     secrets = [
