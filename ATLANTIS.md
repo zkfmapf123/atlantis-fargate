@@ -66,7 +66,8 @@ repos:
 workflows:
   terraform-1-9:  # ← 새 workflow
     plan:
-      steps:        - env:
+      steps:        
+        - env:
             name: ATLANTIS_TERRAFORM_VERSION
             value: 1.9.2
         - init
@@ -77,6 +78,8 @@ workflows:
             name: ATLANTIS_TERRAFORM_VERSION
             value: 1.9.2
         - apply
+    policy_check: ## Approval 없이 바로 Apply 가능하도록 설정 (Test 목적)
+      enabled: false
 ```
 
 ## docker-compose.yml

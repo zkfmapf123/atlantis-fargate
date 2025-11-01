@@ -30,7 +30,35 @@ docker compose version
 
 ## 2. Webhook Relay 를 사용해서 Atlantis 구축하기
 
-- [Atlantis EC2 구성](./attlantis/ec2/main.tf)
+### Stage...
+
+- Webhook Relay내 Bucket 생성 / Destinatino 생성하기
+
+![webhook-3](./public/webhook-3.png)
+
+- Webhook Relay 에 Bucket 모두 추가하기
+
+```sh
+services:
+  webhookrelay:
+    image: webhookrelay/webhookrelayd:latest
+    container_name: webhookrelay
+    restart: unless-stopped
+    network_mode: host  # localhost 접근 필수
+    environment:
+      - RELAY_KEY=${RELAY_KEY}
+      - RELAY_SECRET=${RELAY_SECRET}
+      - BUCKETS=test-bucket 
+```
+
+- Github Actino 내에서 Webhook 잘되는지 체크하기
+
+### 참고
+
+- [Atlantis EC2 구성](./ATLANTIS.md)
+- [Webhook Relay 구성](./WEBHOOK_RELAY.md)
+
+
 
 
 

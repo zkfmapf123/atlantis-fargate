@@ -1,22 +1,18 @@
 # Webhook Relay
 
-## docker-compose.yml
+## docker-compose.yml (Bucket Mode)
 
 ```sh
-version: '3.2'
 services:
-  relay:
-    container_name: webhookrelay
+  webhookrelay:
     image: webhookrelay/webhookrelayd:latest
-    network_mode: host # required if you want to access other services running on localhost (otherwise localhost would be inside this container)
-    restart: always
+    container_name: webhookrelay
+    restart: unless-stopped
+    network_mode: host  # localhost 접근 필수
     environment:
-      # Authentication
       - RELAY_KEY=${RELAY_KEY}
       - RELAY_SECRET=${RELAY_SECRET}
-      # buckets list to subscribe
-      - BUCKETS=${BUCKETS}
-
+      - BUCKETS=test-bucket
 ```
 
 ## .env
