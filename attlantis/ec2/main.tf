@@ -4,6 +4,8 @@ module "ec2" {
 
   items = {
     "webhook_relay" = {
+        "ami" = "ami-0cf1ead55e8259a57"
+        "instance_type" = "t3.micro"
         "vpc_id" = local.vpc_id
         "subnet_id" = local.private_subnets[0]
         "public_ip" = false
