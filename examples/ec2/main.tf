@@ -16,6 +16,13 @@ module "ec2" {
       "subnet_id" = local.private_subnets[0]
       "public_ip" = false
       "user_data" = ""
+    },
+    "test-3" : {
+      "instance_type" = "t4g.micro"
+      "vpc_id" = local.vpc_id
+      "subnet_id" = local.private_subnets[0]
+      "public_ip" = false
+      "user_data" = ""
     }
   }
 }
