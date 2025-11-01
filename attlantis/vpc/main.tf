@@ -2,7 +2,7 @@ module "vpc" {
   source = "zkfmapf123/vpc3tier/lee"
 
   vpc_cidr      = "10.10.0.0/16"
-  is_enable_nat = false
+  is_enable_nat = true
   prefix        = "attalntis"
   vpc_name      = "network"
   vpc_region    = "ap-northeast-2"
@@ -11,11 +11,11 @@ module "vpc" {
     "a" : "10.10.1.0/24",
     "b" : "10.10.2.0/24"
   }
-  was_subnets       = {
+  was_subnets = {
     "a" : "10.10.3.0/24",
     "b" : "10.10.4.0/24"
   }
-  db_subnets        = {
+  db_subnets = {
     "a" : "10.10.5.0/24",
     "b" : "10.10.6.0/24"
   }
@@ -29,6 +29,6 @@ module "vpc" {
   }
 }
 
-output out {
-    value = module.vpc
+output "out" {
+  value = module.vpc
 }
