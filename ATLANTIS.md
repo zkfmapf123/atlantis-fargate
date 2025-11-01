@@ -46,6 +46,9 @@ repos:
   - id: [repository]
     branch: /^(main|master)$/
 
+    # Test mode (Approval 없이 바로 Apply 가능하도록 설정)
+    # apply_requirements:
+
     # Apply 전 요구사항
     apply_requirements:
       - approved
@@ -130,3 +133,6 @@ services:
       retries: 3
       start_period: 40s
 ```
+
+## Atlantis Drift Detection
+

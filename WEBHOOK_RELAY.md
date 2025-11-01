@@ -22,12 +22,6 @@ services:
     BUCKETS=
 ```
 
-## Webhook Relay 에서 설정하기
-
-![webhook-relay](./public/webhook-relay.png)
-![webhook-relay-2](./public/webhook-relay-2.png)
-
-
 ## 참고
 
 - <a href="https://webhookrelay.com/blog/using-drone-for-simple-selfhosted-ci-cd"> Webhook Relay Self hosted </a>
