@@ -4,23 +4,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  drift:
-    name: detects drift
+  drift-detection:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: prepare config
+      - name: Download AT-drift-detection
         run: |
-          cat <<'EOF' > config.yaml
-          github:
-            apiEndpoint: https://api.github.com
-            token: ${{ secrets.ATLANTIS_GITHUB_TOKEN }}
-            repos:
-              - ref: master
-                name: zkfmapf123/atlantis-fargate
-          EOF
-
-      - name: detect drift
-        uses: zkfmapf123/atlantis-drift-detection@1.0.0
+          # 최신 릴리즈 다운로드
+          wget https://github.com/zkfmapf123/AT-drift-detection/releases/latest/download/at-plan-linux-amd64
+          chmod +x at-plan-linux-amd64
+          sudo mv at-plan-linux-amd64 /usr/local/bin/at-plan
+      
+      - name: Run Drift Detection
         env:
-          ATLANTIS_HOST: https://atlantis.dev.leedonggyu.com
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          ATLANTIS_TOKEN: ${{ secrets.ATLANTIS_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: |
+          at-plan plan \
+            -g $GITHUB_TOKEN \
+            -f main \
+            -u https://atlantis.dev.leedonggyu.com \
+            -t $ATLANTIS_TOKEN \
+            -r zkfmapf123/atlantis-fargate \
+            -c atlantis.yaml \
+            -s $SLACK_BOT_TOKEN \
+            -l C05CMUWAHEK
           
