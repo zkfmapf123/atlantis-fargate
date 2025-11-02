@@ -1,7 +1,10 @@
 ## example
 version: 3
 projects:
-  - name: examples
+  - name: ec2
+    dir: examples/ec2
+    workflow: terraform
+  - name: sg
     dir: examples/ec2
     workflow: terraform
 workflows:

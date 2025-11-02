@@ -46,6 +46,9 @@ repos:
   - id: [repository]
     branch: /^(main|master)$/
 
+    # Test mode (Approval 없이 바로 Apply 가능하도록 설정)
+    # apply_requirements:
+
     # Apply 전 요구사항
     apply_requirements:
       - approved
@@ -130,3 +133,22 @@ services:
       retries: 3
       start_period: 40s
 ```
+
+## Atlantis Drift Detection
+
+- docker-compose.yml 내 atlants의 secret key를 추가한다.
+
+```sh
+...
+environment:
+      # GitHub 설정
+      - ATLANTIS_ATLANTIS_URL=[atlantis-url]
+      - ATLANTIS_GH_USER=${ATLANTIS_GH_USER}
+      - ATLANTIS_GH_TOKEN=${ATLANTIS_GH_TOKEN}
+      - ATLANTIS_GH_WEBHOOK_SECRET=${ATLANTIS_GH_WEBHOOK_SECRET}
+      - ATLANTIS_API_SECRET=${ATLANTIS_API_SECRET} ## 추가
+```
+
+### 참고
+
+- <a href="https://github.com/cresta/atlantis-drift-detection"> Atlantis Drift Detection </a>
