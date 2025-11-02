@@ -1,0 +1,26 @@
+name: Drift detection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  drift:
+    name: detects drift
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare config
+        run: |
+          cat <<'EOF' > config.yaml
+          github:
+            apiEndpoint: https://api.github.com
+            token: ${{ secrets.ATLANTIS_GITHUB_TOKEN }}
+            repos:
+              - ref: master
+                name: zkfmapf123/atlantis-fargate
+          EOF
+
+      - name: detect drift
+        uses: zkfmapf123/atlantis-drift-detection@1.0.0
+        env:
+          ATLANTIS_HOST: https://atlantis.dev.leedonggyu.com
+          

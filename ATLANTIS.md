@@ -136,3 +136,19 @@ services:
 
 ## Atlantis Drift Detection
 
+- docker-compose.yml 내 atlants의 secret key를 추가한다.
+
+```sh
+...
+environment:
+      # GitHub 설정
+      - ATLANTIS_ATLANTIS_URL=[atlantis-url]
+      - ATLANTIS_GH_USER=${ATLANTIS_GH_USER}
+      - ATLANTIS_GH_TOKEN=${ATLANTIS_GH_TOKEN}
+      - ATLANTIS_GH_WEBHOOK_SECRET=${ATLANTIS_GH_WEBHOOK_SECRET}
+      - ATLANTIS_API_SECRET=${ATLANTIS_API_SECRET} ## 추가
+```
+
+### 참고
+
+- <a href="https://github.com/cresta/atlantis-drift-detection"> Atlantis Drift Detection </a>
