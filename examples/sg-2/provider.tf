@@ -9,7 +9,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket  = "dk-state-bucket"
-    key     = "examples/sg/terraform.tfstate"
+    key     = "examples/sg-2/terraform.tfstate"
     region  = "ap-northeast-2"
     use_lockfile = true
     
