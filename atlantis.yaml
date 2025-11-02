@@ -5,7 +5,7 @@ projects:
     dir: examples/ec2
     workflow: terraform
   - name: sg
-    dir: examples/ec2
+    dir: examples/sg
     workflow: terraform
 workflows:
   terraform:
