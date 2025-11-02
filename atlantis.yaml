@@ -7,6 +7,9 @@ projects:
   - name: sg
     dir: examples/sg
     workflow: terraform
+  - name: sg-2
+    dir: examples/sg-2
+    workflow: terraform
 workflows:
   terraform:
     plan:
